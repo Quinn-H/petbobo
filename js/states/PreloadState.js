@@ -19,6 +19,7 @@ var PreloadState = {
     this.load.audio('clickItems', 'assets/audio/click.mp3');
     this.load.audio('bark', 'assets/audio/bark.mp3');
     this.load.audio('gameBackground', 'assets/audio/game.mp3');
+    this.load.audio('dogSinging', 'assets/audio/dogSinging.mp3');
 
   },
   create: function() {

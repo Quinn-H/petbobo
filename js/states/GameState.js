@@ -12,9 +12,9 @@ var GameState = {
   	this.pet.anchor.setTo(0.5);
 
     // animation
-    this.pet.animations.add('pickBone', [1], 1, false)
-    this.pet.animations.add('pickBall', [2], 1, false)
-    this.pet.animations.add('pickBird', [3], 1, false)
+    this.pet.animations.add('pickBone', [0, 1, 1, 2], 51, false)
+    this.pet.animations.add('pickBall', [0, 1, 1, 3], 51, false)
+    this.pet.animations.add('pickBird', [0, 1, 1, 4], 51, false)
 
   	//custom properties
   	this.pet.customParams = {energy: 100, fun: 100};
@@ -26,20 +26,20 @@ var GameState = {
   	this.bone = this.game.add.sprite(72, 570, 'bone');
     this.bone.anchor.setTo(0.5);
     this.bone.inputEnabled = true;
-    this.bone.customParams = {energy: 20};
+    this.bone.customParams = {energy: 30, fun: -15};
     this.bone.events.onInputDown.add(this.pickItem, this);
 
   	this.ball = this.game.add.sprite(144, 570, 'ball');
     this.ball.anchor.setTo(0.5);
     this.ball.inputEnabled = true;
-    this.ball.customParams = {energy: -20, fun: 20};
+    this.ball.customParams = {energy: -22, fun: 30};
     this.ball.events.onInputDown.add(this.pickItem, this);
 
 
   	this.bird = this.game.add.sprite(216, 570, 'bird');
     this.bird.anchor.setTo(0.5);
     this.bird.inputEnabled = true;
-    this.bird.customParams = {fun: 10};
+    this.bird.customParams = {energy: -10, fun: 20};
     this.bird.events.onInputDown.add(this.pickItem, this);
 
   	this.rotate = this.game.add.sprite(288, 570, 'rotate');
@@ -98,6 +98,7 @@ var GameState = {
         this.uiBlocked = false;
         sprite.alpha = 1;
         this.pet.customParams.fun += 10;
+        this.pet.customParams.energy += 10;
         //update value of stat
         this.refreshStats();
       }, this)
@@ -164,11 +165,17 @@ var GameState = {
 
   reduceProperties: function() {
     this.pet.customParams.energy -= 10;
-    this.pet.customParams.fun -= 5;
+    this.pet.customParams.fun -= 10;
     this.refreshStats();
   },
 
   update: function() {
+    if(this.pet.customParams.energy > 300 && this.pet.customParams.fun > 300) {
+      this.pet.frame = 3;
+      this.uiBlocked = true;
+      this.game.time.events.add(2000, this.gameOverWin, this);
+    }
+
     if(this.pet.customParams.energy <= 0 || this.pet.customParams.fun <= 0){
       // if stat below 0, change frame and play sound
       this.pet.frame = 3;
@@ -178,7 +185,14 @@ var GameState = {
   },
 
   gameOver: function() {
-    this.state.start('HomeState', true, false, 'GAME OVER!');
+    this.state.start('HomeState', true, false, 'TRY AGAIN 🐶!');
     bksound.destroy();
+  },
+
+  gameOverWin: function() {
+    this.state.start('HomeState', true, false, 'BoBo ❤️ You 👍!');
+    bksound.destroy();
+    let music = this.game.add.audio('dogSinging');
+    music.play();
   }
 };
