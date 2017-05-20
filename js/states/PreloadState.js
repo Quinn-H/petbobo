@@ -13,7 +13,6 @@ var PreloadState = {
     this.load.image('ball', 'assets/images/ball.png');
     this.load.image('rotate', 'assets/images/rotate.png');
     this.load.image('bird', 'assets/images/bird.png');
-    this.load.image('arrow', 'assets/images/arrow.png');
     this.load.spritesheet('pet', 'assets/images/bobo.png', 97, 83, 5, 1, 1);
 
     this.load.audio('spinDog', 'assets/audio/spin.mp3');

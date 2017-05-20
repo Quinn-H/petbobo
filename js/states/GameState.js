@@ -75,7 +75,7 @@ var GameState = {
   },
 
   pickItem: function(sprite, event) {
-    let sound = this.game.add.audio('clickItems');
+    let sound = this.game.add.audio('clickItems', 0.1);
     sound.play();
     if(!this.uiBlocked) {
       this.clearSelection();
