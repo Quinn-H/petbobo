@@ -8,7 +8,7 @@ var PreloadState = {
     this.preloadBar.anchor.setTo(0.5);
     this.load.setPreloadSprite(this.preloadBar);
 
-    this.load.image('backyard', 'assets/images/backyard.png');
+    this.load.image('backyard', 'assets/images/backyard1.png');
     this.load.image('bone', 'assets/images/bone.png');
     this.load.image('ball', 'assets/images/ball.png');
     this.load.image('rotate', 'assets/images/rotate.png');

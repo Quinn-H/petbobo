@@ -32,7 +32,7 @@ var GameState = {
   	this.ball = this.game.add.sprite(144, 570, 'ball');
     this.ball.anchor.setTo(0.5);
     this.ball.inputEnabled = true;
-    this.ball.customParams = {energy: -22, fun: 30};
+    this.ball.customParams = {energy: -20, fun: 30};
     this.ball.events.onInputDown.add(this.pickItem, this);
 
 
@@ -79,7 +79,7 @@ var GameState = {
     sound.play();
     if(!this.uiBlocked) {
       this.clearSelection();
-      sprite.alpha = 0.3;
+      sprite.alpha = 0.5;
       this.selectedItem = sprite;
     }
   },
@@ -91,7 +91,7 @@ var GameState = {
       // block the user choice until the roatate ends
       this.uiBlocked = true;
       this.clearSelection();
-      sprite.alpha = 0.3
+      sprite.alpha = 0.5
       var petRotation = this.game.add.tween(this.pet);
       petRotation.to({angle: '+720'}, 2000);
       petRotation.onComplete.add(function(){
@@ -170,7 +170,7 @@ var GameState = {
   },
 
   update: function() {
-    if(this.pet.customParams.energy > 300 && this.pet.customParams.fun > 300) {
+    if(this.pet.customParams.energy > 290 && this.pet.customParams.fun > 290) {
       this.pet.frame = 3;
       this.uiBlocked = true;
       this.game.time.events.add(2000, this.gameOverWin, this);

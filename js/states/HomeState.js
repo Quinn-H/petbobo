@@ -11,14 +11,14 @@ var HomeState = {
       this.state.start('GameState');
     }, this);
 
-    var style = {font: '35px Arial', fill: '#fff'};
-    var styleGuide = {font: '16px Arial', fill: '#fff'};
-    var styleRule = {font: '15px Arial', fill: '#F71735'};
+    var style = {font: '35px Arial', fill: '#000'};
+    var styleGuide = {font: '16px italic', fill: '#000'};
+    var styleRule = {font: '15px Arial', fill: '#000'};
     this.game.add.text(70, this.game.world.centerY + 200, 'Touch to Start', style);
-    this.game.add.text(18, 200 , 'BoBo needs 300 points for both energy and fun', styleGuide);
+    this.game.add.text(18, 200 , 'BoBo needs 290 points for both energy and fun', styleGuide);
     this.game.add.text(20, 250 , 'Bone: +30 Energy || -15 Fun', styleRule);
     this.game.add.text(20, 300 , 'Ball: -22 Energy || +30 Fun', styleRule);
-    this.game.add.text(20, 350 , 'Bird: -10 Energy || 20 Fun', styleRule);
+    this.game.add.text(20, 350 , 'Bird: -10 Energy || +20 Fun', styleRule);
     this.game.add.text(20, 400 , 'Rotate: +10 Energy || +10 Fun', styleRule);
 
     if(this.message) {
