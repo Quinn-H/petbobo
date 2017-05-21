@@ -14,15 +14,17 @@ var HomeState = {
     var style = {font: '35px Arial', fill: '#000'};
     var styleGuide = {font: '16px italic', fill: '#000'};
     var styleRule = {font: '15px Arial', fill: '#000'};
-    this.game.add.text(70, this.game.world.centerY + 200, 'Touch to Start', style);
-    this.game.add.text(18, 200 , 'BoBo needs 290 points for both energy and fun', styleGuide);
-    this.game.add.text(20, 250 , 'Bone: +30 Energy || -15 Fun', styleRule);
-    this.game.add.text(20, 300 , 'Ball: -22 Energy || +30 Fun', styleRule);
-    this.game.add.text(20, 350 , 'Bird: -10 Energy || +20 Fun', styleRule);
-    this.game.add.text(20, 400 , 'Rotate: +10 Energy || +10 Fun', styleRule);
+    var styleHow = {font: '20px Arial', fill: '#F72464'};
+    this.game.add.text(70, this.game.world.centerY + 200, '点击屏幕开始', style);
+    this.game.add.text(5, 200 , '当能量和开心指数达到290分时🐶会唱歌给你听🎤', styleGuide);
+    this.game.add.text(20, 250 , '骨头: +30 能量值 || -15 开心值', styleRule);
+    this.game.add.text(20, 300 , '球: -22 能量值 || +30 开心值', styleRule);
+    this.game.add.text(20, 350 , '玩具鸟: -10 能量值 || +20 开心值', styleRule);
+    this.game.add.text(20, 400 , '翻滚吧: +10 能量值 || +10 开心值', styleRule);
+    this.game.add.text(20, 450 , '请先选择玩具，然后放在屏幕上！', styleHow);
 
     if(this.message) {
-      this.game.add.text(60, this.game.world.centerY - 200, this.message, style);
+      this.game.add.text(20, this.game.world.centerY - 200, this.message, style);
     }
   }
 };

@@ -62,11 +62,11 @@ var GameState = {
       fill: '#FF9F1C'
     }
 
-    this.game.add.text(10, 20, 'Energy:', styleEnergy);
-    this.game.add.text(10, 50, 'Fun:', styleFun);
+    this.game.add.text(10, 20, '能量值:', styleEnergy);
+    this.game.add.text(10, 50, '开心值:', styleFun);
 
     this.energyText = this.game.add.text(80, 20, '', styleEnergy);
-    this.funText = this.game.add.text(55, 50, '', styleFun);
+    this.funText = this.game.add.text(80, 50, '', styleFun);
 
     this.refreshStats();
 
@@ -185,12 +185,12 @@ var GameState = {
   },
 
   gameOver: function() {
-    this.state.start('HomeState', true, false, 'TRY AGAIN 🐶!');
+    this.state.start('HomeState', true, false, '🐶 再来一次吧 🐶');
     bksound.destroy();
   },
 
   gameOverWin: function() {
-    this.state.start('HomeState', true, false, 'BoBo ❤️ You 👍!');
+    this.state.start('HomeState', true, false, '汪！BoBo ❤️ 你 👍!');
     bksound.destroy();
     let music = this.game.add.audio('dogSinging');
     music.play();
